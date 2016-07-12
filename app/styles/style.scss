@@ -1,0 +1,323 @@
+/*style.css*/
+@import 'shared/reset.scss';
+@import 'shared/fonts.scss';
+@import 'shared/functions.scss';
+
+html, body {
+	position: relative;
+	text-align: center;
+	height: 100%;
+}
+
+.wrapper {
+	width: 960px;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* Header */
+header {
+	width: 100%;
+	height: 8.5rem;
+	position: relative;
+
+	h1 {
+		height: 100%;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+
+		a {
+			text-indent: -9999px;
+			display: block;
+			@include background('img/profite_logo_novo.png', 100%);
+			width: 15rem;
+			height: 100%;
+		}
+	}
+	.visitor {
+		text-align: left;
+		margin: 0 2rem;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+
+		h2 {
+			font-family: $OSbold;
+			@include fs(19);
+			margin-bottom: 0.2rem;
+		}
+		a, span {
+			font-family: $OSregular;
+			text-decoration: none;
+			color: #000;
+			@include fs(14);
+		}
+	}
+	form {
+		width: 20rem;
+		height: 2rem;
+		border-radius: 10px;
+		overflow: hidden;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+
+		label {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			background-color: #fac437;
+			display: block;
+			[type="submit"] {
+				content: '';
+				@include background('img/icone_pesquisa.png', auto 68%);
+				background-color: #000;
+				border-top-right-radius: 10px;
+				border-bottom-right-radius: 10px;
+				width: 12%;
+				height: 100%;
+				position: relative;
+				float: left;
+				cursor: pointer;
+			}
+			input {
+				color: #000;
+				@include fs(14);
+				border: 0;
+				background-color: transparent;
+				font-family: $OSregular;
+				outline: none;
+				width: 88%;
+				float: left;
+				padding: 0.4rem 0 0 0.3rem;
+				box-sizing: border-box;
+			}
+		}
+	}
+	.languages {
+		margin-left: 3.2rem;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+
+		.content-flags {
+			li {
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 .1rem;
+				&.br {
+					a {
+						background-image: url(img/bandeira1.png);
+					}
+				}
+				&.ar {
+					a {
+						background-image: url(img/bandeira2.png);
+					}
+				}
+				&.cn {
+					a {
+						background-image: url(img/bandeira3.png);
+					}
+				}
+
+				a {
+					text-indent: -9999px;
+					display: block;
+					@include background('', 100%);
+					width: 1.8rem;
+					height: 1.8rem;
+				}
+			}
+		}
+
+		.skype {
+			font-family: 'OSbold';
+			margin-top: .2rem;
+			color: #00aff0;
+			@include fs(18);
+			&::before {
+				content: '';
+				@include background('img/skype.png', auto);
+				display: inline-block;
+				vertical-align: text-bottom;
+				width: 2rem;
+				height: 2rem;
+			}
+		}
+	}
+}
+
+/* Banners */
+.banners {
+	width: 100%;
+	position: relative;
+	background-color: #fac437;
+	overflow: hidden;
+
+	.arrows-banner {
+		position: absolute;
+		top: 10rem;
+		@include background('', 100%);
+		width: 1rem;
+		height: 2rem;
+		text-indent: -9999px;
+		display: block;
+		cursor: pointer;
+		&.prev {
+			background-image: url(img/seta_esquerda.png);
+			left: -2.5rem;
+		}
+		&.next {
+			background-image: url(img/seta_direita.png);
+			right: -2.5rem;
+		}
+	}
+	.carousel-banners {
+		width: 100%;
+		overflow: hidden;
+		max-height: 22rem;
+
+		.content-banners {
+			white-space: nowrap;
+			width: auto;
+			height: 100%;
+			display: block;
+			position: relative;
+			.item-banner {
+				display: inline-block;
+				margin-right: -4px;
+			}
+		}
+	}
+}
+
+#application-products {
+	width: 100%;
+	position: relative;
+
+	.products-container {
+		width: 100%;
+		margin: 1.8rem 0 4rem;
+
+		.total-carousel {
+			.item {
+				display: inline-block;
+				vertical-align: top;
+				width: 25%;
+				height: 26.8rem;
+				box-sizing: border-box;
+				padding: 3rem 2rem 0;
+				font-family: Arial;
+				position: relative;
+				&:hover {
+					background-color: #fac437;
+					.price {
+						font-weight: normal;
+					}
+					.times {
+						b {
+							font-weight: normal;
+						}
+					}
+					.action {
+						.button-buy {
+							background-size: auto 60%;
+							background-position: 10px center;
+						}
+					}
+				}
+
+				img {
+					width: 100%;
+					display: block;
+				}
+				p {
+					font-weight: bold;
+					line-height: 1.2rem;
+					@include fs(14);
+					display: block;
+				}
+				.stars {
+					white-space: nowrap;
+					margin: 1.8rem 0 0.8rem;
+					li {
+						display: inline-block;
+						vertical-align: top;
+						text-indent: -9999px;
+						width: 1.2rem;
+						height: 1.4rem;
+						margin: 0 0.18rem;
+						@include background('img/stars.png', auto);
+						background-position: left center;
+						cursor: pointer;
+						&:hover {
+							background-position: right center;
+						}
+					}
+				}
+				.price-for {
+					font-style: italic;
+					color: #636465;
+					text-decoration: line-through;
+					@include fs(10);
+					display: block;
+				}
+				.price {
+					@include fs(12);
+					font-weight: bold;
+					display: block;
+					margin: 0.2rem 0 0.4rem;
+					span {
+						font-style: italic;
+					}
+				}
+				.times {
+					@include fs(12);
+					font-style: italic;
+					display: block;
+					b {
+						font-weight: bold;
+					}
+				}
+				.action {
+					width: 100%;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					.button-buy {
+						@include background('img/carrinho.png', auto 40%);
+						@include fs(17);
+						background-position: 20px center;
+						background-color: #000;
+						color: #fff;
+						text-align: right;
+						box-sizing: border-box;
+						padding: 0.5rem 0.6rem;
+						width: 8.8rem;
+						text-decoration: none;
+						text-transform: uppercase;
+						display: block;
+						margin: 0 auto 0.5rem;
+					}
+					.save-value {
+						border: 1px solid #c5c5c5;
+						background-color: #fff;
+						@include fs(10);
+						padding: 0.11rem 1.6rem;
+						display: inline-block;
+						margin-bottom: 0.4rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+footer {
+	width: 100%;
+	@include background('img/bg-pattern.jpg', auto);
+	background-repeat: repeat;
+}

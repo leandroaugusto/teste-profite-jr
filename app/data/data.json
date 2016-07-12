@@ -1,0 +1,52 @@
+{
+	"products": [
+		{
+			"name": "Sandália Ferracini Ecologic",
+			"img": "calcado1.png",
+			"img_hover": "calcado1_hover.png",
+			"zoom": "calcado1_zoom.png",
+			"for": "",
+			"price": "95,92",
+			"times": "4",
+			"value_times": "23,98",
+			"link": "#",
+			"save_value": "43,98"
+		},
+		{
+			"name": "Chinelo Kildare",
+			"img": "calcado2.png",
+			"img_hover": "calcado2_hover.png",
+			"zoom": "calcado2_zoom.png",
+			"for": "99,90",
+			"price": "79,92",
+			"times": "3",
+			"value_times": "26,64",
+			"link": "#",
+			"save_value": "19,98"
+		},
+		{
+			"name": "Tênis Ferracini Week",
+			"img": "calcado3.png",
+			"img_hover": "calcado3_hover.png",
+			"zoom": "calcado3_zoom.png",
+			"for": "229,90",
+			"price": "183,92",
+			"times": "9",
+			"value_times": "20,43",
+			"link": "#",
+			"save_value": "45,98"
+		},
+		{
+			"name": "Tênis Democrata Fan",
+			"img": "calcado4.png",
+			"img_hover": "calcado4_hover.png",
+			"zoom": "calcado4_zoom.png",
+			"for": "219,90",
+			"price": "159,92",
+			"times": "7",
+			"value_times": "22,84",
+			"link": "#",
+			"save_value": "59,98"
+		}
+	]
+}
