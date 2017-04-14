@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Teste - Profite</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<link rel="stylesheet" href="styles/style.min.css">
@@ -46,33 +46,13 @@
 
 	<div class="banners">
 		<div class="wrapper">
-			<!-- Navigation Banners -->
-			<span class="arrows-banner prev">left</span>
-			<span class="arrows-banner next">right</span>
-
-			<div class="carousel-banners">
-				<ul class="content-banners">
-					<li class="item-banner">
-						<img src="images/banner/banner1.jpg" alt="" class="img-banner">
-					</li>
-					<li class="item-banner">
-						<img src="images/banner/banner2.jpg" alt="" class="img-banner">
-					</li>
-					<li class="item-banner">
-						<img src="images/banner/banner3.jpg" alt="" class="img-banner">
-					</li>
-					<li class="item-banner">
-						<img src="images/banner/banner4.jpg" alt="" class="img-banner">
-					</li>
-					<li class="item-banner">
-						<img src="images/banner/banner5.jpg" alt="" class="img-banner">
-					</li>
-				</ul>
-			</div>
+			<div class="carousel-banners"></div>
 		</div>
 	</div>
 
-	<div id="application-products"></div>
+	<div id="application-products">
+		<ul class="wrapper products-container"></ul>
+	</div>
 
 	<footer id="footer">
 		<div class="wrapper">
@@ -85,11 +65,26 @@
 				<p class="phone">tel.: +55 (21) 2263.6044</p>
 			</div>
 			<div class="contact">
-				<a href="#" class="contact-links mail">entre em <b>contato</b></a>
-				<a href="#" class="contact-links online">fale com o nosso <b>consultor online</b></a>
+				<a href="#" class="contact-links mail">
+					<span>entre em <b>contato</b></span>
+				</a>
+				<a href="#" class="contact-links online">
+					<span>fale com o nosso <b>consultor online</b></span>
+				</a>
 			</div>
 		</div>
 	</footer>
+
+	<div id="lightbox" class="zoom-shoes">
+		<div class="lightbox-container">
+			<span class="close">fechar</span>
+			<img src="" alt="">
+		</div>
+	</div>
+
+	<div id="loading">
+		<img src="images/loading.gif" alt="">
+	</div>
 
 	<!-- Components -->
 	<script src="scripts/components/react/react.js"></script>
@@ -97,7 +92,6 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script> -->
     <script src="scripts/components/babel-standalone/babel.js"></script>
 	<script src="scripts/components/jquery/dist/jquery.js"></script>
-	<script src="scripts/components/Flowtype.js/flowtype.js"></script>
 	<script src="scripts/components/slick-carousel/slick/slick.js"></script>
     <!-- End Components -->
 

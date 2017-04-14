@@ -1,4 +1,31 @@
 {
+	"banners": [
+		{
+			"img": "banner1.jpg",
+			"mobile": "banner1_mobile.jpg",
+			"name": "A taça é nossa"
+		},
+		{
+			"img": "banner2.jpg",
+			"mobile": "banner2_mobile.jpg",
+			"name": "Criamos experiências"
+		},
+		{
+			"img": "banner3.jpg",
+			"mobile": "banner3_mobile.jpg",
+			"name": "Buy"
+		},
+		{
+			"img": "banner4.jpg",
+			"mobile": "banner4_mobile.jpg",
+			"name": "e-commerce"
+		},
+		{
+			"img": "banner5.jpg",
+			"mobile": "banner5_mobile.jpg",
+			"name": "Change"
+		}
+	],
 	"products": [
 		{
 			"name": "Sandália Ferracini Ecologic",

@@ -9,11 +9,45 @@ html, body {
 	height: 100%;
 }
 
+#loading {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	background-color: #fff;
+	img {
+		height: 20%;
+		position: relative;
+		display: block;
+		top: 50%;
+		margin: -10% auto 0;
+	}
+}
+
 .wrapper {
 	width: 960px;
 	height: 100%;
 	margin: 0 auto;
 	position: relative;
+	@include respond-to(mobile) {
+		width: 100%;
+	}
+}
+
+/* Slick Arrows */
+.slick-arrow {
+	position: absolute;
+	top: 10rem;
+	background-color: transparent;
+	border: 0;
+	width: 1rem;
+	height: 2rem;
+	text-indent: -9999px;
+	display: block;
+	cursor: pointer;
+	outline: none;
 }
 
 /* Header */
@@ -21,12 +55,18 @@ header {
 	width: 100%;
 	height: 8.5rem;
 	position: relative;
+	@include respond-to(mobile){
+		height: 11rem;
+	}
 
 	h1 {
 		height: 100%;
 		display: inline-block;
 		vertical-align: middle;
 		position: relative;
+		@include respond-to(mobile){
+			height: 9rem;
+		}
 
 		a {
 			text-indent: -9999px;
@@ -63,13 +103,20 @@ header {
 		display: inline-block;
 		vertical-align: middle;
 		position: relative;
+		@include respond-to(mobile){
+			width: 100%;
+			display: block;
+			top: -1rem;
+			border-radius: 0;
+		}
 
 		label {
 			width: 100%;
 			height: 100%;
 			position: relative;
-			background-color: #fac437;
+			background-color: $yellow;
 			display: block;
+
 			[type="submit"] {
 				content: '';
 				@include background('img/icone_pesquisa.png', auto 68%);
@@ -81,6 +128,11 @@ header {
 				position: relative;
 				float: left;
 				cursor: pointer;
+				@include respond-to(mobile){
+					width: 7%;
+					border-radius: 0;
+					margin-left: 1.2rem;
+				}
 			}
 			input {
 				color: #000;
@@ -101,6 +153,9 @@ header {
 		display: inline-block;
 		vertical-align: middle;
 		position: relative;
+		@include respond-to(mobile){
+			display: none;
+		}
 
 		.content-flags {
 			li {
@@ -154,41 +209,60 @@ header {
 .banners {
 	width: 100%;
 	position: relative;
-	background-color: #fac437;
+	background-color: $yellow;
 	overflow: hidden;
 
-	.arrows-banner {
-		position: absolute;
-		top: 10rem;
-		@include background('', 100%);
-		width: 1rem;
-		height: 2rem;
-		text-indent: -9999px;
-		display: block;
-		cursor: pointer;
-		&.prev {
-			background-image: url(img/seta_esquerda.png);
-			left: -2.5rem;
-		}
-		&.next {
-			background-image: url(img/seta_direita.png);
-			right: -2.5rem;
-		}
-	}
 	.carousel-banners {
 		width: 100%;
-		overflow: hidden;
 		max-height: 22rem;
+		position: relative;
 
-		.content-banners {
-			white-space: nowrap;
-			width: auto;
-			height: 100%;
-			display: block;
-			position: relative;
-			.item-banner {
+		.slick-list {
+			overflow: hidden;
+		}
+
+		.slick-arrow {
+			&.slick-prev {
+				@include background('img/seta_esquerda.png', 100%);
+				left: -2.5rem;
+			}
+			&.slick-next {
+				@include background('img/seta_direita.png', 100%);
+				right: -2.5rem;
+			}
+		}
+
+		.item-banner {
+			display: inline-block;
+			margin-right: -4px;
+			img {
+				width: 100%;
+			}
+		}
+
+		.slick-dots {
+			width: 100%;
+			position: absolute;
+			bottom: 1rem;
+			li {
 				display: inline-block;
-				margin-right: -4px;
+				vertical-align: middle;
+				margin: 0 0.2rem;
+				&.slick-active {
+					button {
+						@include background('img/slide_atual.png', 90%);
+					}
+				}
+				button {
+					border: 0;
+					outline: none;
+					cursor: pointer;
+					@include background('img/slide_proximo.png', 90%);
+					background-color: transparent;
+					width: 1rem;
+					height: 1rem;
+					text-indent: -9999px;
+				}
 			}
 		}
 	}
@@ -197,119 +271,124 @@ header {
 #application-products {
 	width: 100%;
 	position: relative;
+	margin: 1.8rem 0 4rem;
 
 	.products-container {
-		width: 100%;
-		margin: 1.8rem 0 4rem;
-
-		.total-carousel {
-			.item {
-				display: inline-block;
-				vertical-align: top;
-				width: 25%;
-				height: 26.8rem;
-				box-sizing: border-box;
-				padding: 3rem 2rem 0;
-				font-family: Arial;
-				position: relative;
-				&:hover {
-					background-color: #fac437;
-					.price {
-						font-weight: normal;
-					}
-					.times {
-						b {
-							font-weight: normal;
-						}
-					}
-					.action {
-						.button-buy {
-							background-size: auto 60%;
-							background-position: 10px center;
-						}
-					}
-				}
-
-				img {
-					width: 100%;
-					display: block;
-				}
-				p {
-					font-weight: bold;
-					line-height: 1.2rem;
-					@include fs(14);
-					display: block;
-				}
-				.stars {
-					white-space: nowrap;
-					margin: 1.8rem 0 0.8rem;
-					li {
-						display: inline-block;
-						vertical-align: top;
-						text-indent: -9999px;
-						width: 1.2rem;
-						height: 1.4rem;
-						margin: 0 0.18rem;
-						@include background('img/stars.png', auto);
-						background-position: left center;
-						cursor: pointer;
-						&:hover {
-							background-position: right center;
-						}
-					}
-				}
-				.price-for {
-					font-style: italic;
-					color: #636465;
-					text-decoration: line-through;
-					@include fs(10);
-					display: block;
-				}
+		@include respond-to(mobile){
+			width: 80%;
+		}
+		.slick-list {
+			overflow: hidden;
+		}
+		.item {
+			display: inline-block;
+			vertical-align: top;
+			width: 25%;
+			height: 26.8rem;
+			box-sizing: border-box;
+			padding: 3rem 2rem 0;
+			font-family: Arial;
+			position: relative;
+			outline: none;
+			&:hover {
+				background-color: $yellow;
 				.price {
-					@include fs(12);
-					font-weight: bold;
-					display: block;
-					margin: 0.2rem 0 0.4rem;
-					span {
-						font-style: italic;
-					}
+					font-weight: normal;
 				}
 				.times {
-					@include fs(12);
-					font-style: italic;
-					display: block;
 					b {
-						font-weight: bold;
+						font-weight: normal;
 					}
 				}
 				.action {
-					width: 100%;
-					position: absolute;
-					bottom: 0;
-					left: 0;
 					.button-buy {
-						@include background('img/carrinho.png', auto 40%);
-						@include fs(17);
-						background-position: 20px center;
-						background-color: #000;
-						color: #fff;
-						text-align: right;
-						box-sizing: border-box;
-						padding: 0.5rem 0.6rem;
-						width: 8.8rem;
-						text-decoration: none;
-						text-transform: uppercase;
-						display: block;
-						margin: 0 auto 0.5rem;
+						background-size: auto 60%;
+						background-position: 10px center;
 					}
-					.save-value {
-						border: 1px solid #c5c5c5;
-						background-color: #fff;
-						@include fs(10);
-						padding: 0.11rem 1.6rem;
-						display: inline-block;
-						margin-bottom: 0.4rem;
+				}
+			}
+
+			img {
+				width: 100%;
+				display: block;
+				cursor: pointer;
+			}
+			p {
+				font-weight: bold;
+				line-height: 1.2rem;
+				@include fs(14);
+				display: block;
+				height: 3.2rem;
+			}
+			.stars {
+				white-space: nowrap;
+				margin-bottom: 0.8rem;
+				li {
+					display: inline-block;
+					vertical-align: top;
+					text-indent: -9999px;
+					width: 1.2rem;
+					height: 1.4rem;
+					margin: 0 0.18rem;
+					@include background('img/stars.png', auto);
+					background-position: left center;
+					cursor: pointer;
+					&:hover {
+						background-position: right center;
 					}
+				}
+			}
+			.price-for {
+				font-style: italic;
+				color: #636465;
+				text-decoration: line-through;
+				@include fs(10);
+				display: block;
+			}
+			.price {
+				@include fs(12);
+				font-weight: bold;
+				display: block;
+				margin: 0.2rem 0 0.4rem;
+				span {
+					font-style: italic;
+				}
+			}
+			.times {
+				@include fs(12);
+				font-style: italic;
+				display: block;
+				b {
+					font-weight: bold;
+				}
+			}
+			.action {
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				.button-buy {
+					@include background('img/carrinho.png', auto 40%);
+					@include fs(17);
+					background-position: 20px center;
+					background-color: #000;
+					color: #fff;
+					text-align: right;
+					box-sizing: border-box;
+					padding: 0.5rem 0.6rem;
+					width: 8.8rem;
+					text-decoration: none;
+					text-transform: uppercase;
+					display: block;
+					margin: 0 auto 0.5rem;
+				}
+				.save-value {
+					border: 1px solid #c5c5c5;
+					background-color: #fff;
+					@include fs(10);
+					padding: 0.11rem 1.6rem;
+					display: inline-block;
+					margin-bottom: 0.4rem;
 				}
 			}
 		}
@@ -320,4 +399,133 @@ footer {
 	width: 100%;
 	@include background('img/bg-pattern.jpg', auto);
 	background-repeat: repeat;
+	padding: 3.8rem 0;
+	.places {
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		width: 12rem;
+		text-align: left;
+		font-family: Arial;
+		@include fs(14);
+		line-height: 1.5rem;
+		margin: 0 2.3rem;
+		&.rj {
+			&:before {
+				@include background('img/icone_rj.png', 90%);
+			}
+		}
+		&.sp {
+			&:before {
+				@include background('img/icone_sp.png', 90%);
+			}
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			left: -3.6rem;
+			top: -0.9rem;
+			width: 3.2rem;
+			height: 3.2rem;
+		}
+
+		.address {
+			color: #626262;
+		}
+		.phone {
+			font-weight: bold;
+			color: #000;
+		}
+	}
+	.contact {
+		display: inline-block;
+		vertical-align: middle;
+		.contact-links {
+			font-family: Arial;
+			text-decoration: none;
+			color: #000;
+			@include fs(11);
+			width: 11.2rem;
+			height: 2.5rem;
+			text-transform: uppercase;
+			background-color: $yellow;
+			margin-bottom: 1rem;
+			display: block;
+			text-align: left;
+			padding-left: 0.5rem;
+			box-sizing: border-box;
+			line-height: 1rem;
+			&.mail {
+				&:before {
+					@include background('img/icone_contato.png', 90%);
+				}
+			}
+			&.online {
+				&:before {
+					@include background('img/icone_consultor.png', 90%);
+				}
+			}
+			&:before {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				width: 1.5rem;
+				height: 100%;
+				position: relative;
+				margin-right: 0.3rem;
+			}
+			span {
+				display: inline-block;
+				vertical-align: middle;
+				width: 8.5rem;
+				b {
+					font-family: 'Arial Black';
+				}
+			}
+		}
+	}
+}
+
+.zoom-shoes {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: rgba(0,0,0,.5);
+	display: none;
+	.lightbox-container {
+		background-color: #fff;
+		position: absolute;
+		width: 650px;
+		height: 650px;
+		left: 50%;
+		top: 50%;
+		margin-left: -325px;
+		margin-top: -325px;
+		&::before {
+			content: '';
+			position: relative;
+			height: 100%;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.close {
+			@include background('img/fechar.png', 90%);
+			cursor: pointer;
+			width: 2rem;
+			height: 2rem;
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			text-indent: -9999px;
+		}
+		img {
+			max-width: 95%;
+			max-height: 95%;
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
 }
